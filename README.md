@@ -1,6 +1,6 @@
 # Capestone-Project-Module-20-and-24
 
-# Capestone Project on CNN for Image Classification (Deep Learning)
+# Project on CNN (Deep Learning)
 
 # Project Name - "CNN based Image Classification"
 
