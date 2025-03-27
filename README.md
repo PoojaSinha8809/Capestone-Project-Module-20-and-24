@@ -7,12 +7,14 @@
 ## Introduction 
 Drone technology has witnessed rapid growth in recent years, finding applications in surveillance, delivery services, agriculture, and more. As drone usage continues to expand, ensuring safety and preventing unauthorized activities has become increasingly important. To address this concern, deep learning techniques can be applied to detect and localize drones in images. we will explore deep learning technique for image classification in the scope of this project.
 
-**Project Overview: Object Classification for Drone Detection** 
+**Project Overview: Object Classification for Drone Detection**
+
 In this project, I aim to build a deep learning model for image classification to classify images containing various objects, specifically focusing on detecting drones, helicopters, airplanes, and birds. The dataset contains images of these objects, and the task is to develop a model capable of distinguishing between these categories.
 
 The dataset used for this project is the Kaggle Drone Detection Dataset, which can be found at the following link
 
 **Objective:**
+
 The main objective of this project is to develop an image classification model capable of distinguishing between four different categories: drone, helicopter, airplane, and bird. By leveraging the Kaggle Drone Detection Dataset, we will apply Deep Neural Networks (DNNs) and Convolutional Neural Networks (CNNs) to classify the images. The performance of the model will be evaluated based on various metrics to determine its accuracy and make improvements as needed. We will build multiple models to compare and add improvement in result. To compare the finding and explore the data we will further use MobileNet2 to evaluation the performance of model build with different parameters.
 
 # Source Dataset and Insights on data.
@@ -31,7 +33,8 @@ We will begin by exploring the dataset and organizing it for use in training the
 Each image will be labeled with the respective object class (drone, helicopter, airplane, or bird), which will be used for supervised learning.
 
 ### Model Development: 
-                                                                                                                                                                We will build a Convolutional Neural Network (CNN) for the image classification task. CNNs are well-suited for image data due to their ability to detect and learn patterns such as edges, textures, and shapes.
+
+We will build a Convolutional Neural Network (CNN) for the image classification task. CNNs are well-suited for image data due to their ability to detect and learn patterns such as edges, textures, and shapes.
 
 The model will consist of multiple convolutional layers to extract features from the images, followed by fully connected layers to classify them into one of the four categories: drone, helicopter, airplane, or bird. 
 
@@ -79,7 +82,7 @@ To have same format of data we will perform the image structuring and resizing f
 
 **Understand the annotation dataset in the train folder.** 
 Like we mentioned before, the dataset has annotation.csv in train, valid and test folder. We will explore teh dataset to understand the annotation data and analyse the data to decide if the annotation is matching with actual image files in each class.
-![View Number of Filename based on Class using Annotation Dataset](images/screenshots/Img4.jpg)
+![View Number of Filename based on Class using Annotation Dataset](images/screenshots/Img5.jpg)
 
 Upon reviewing the plot above, it is evident that the annotation data does not align with the actual files available in the train folder. Specifically, the Bird class appears to be missing in the annotations. This discrepancy suggests that the annotation.csv file contains incomplete information for the Bird class and is not fully reliable for image classification purposes moving forward
 
@@ -114,65 +117,65 @@ Use the function Sequential() to create a neural network model with the followin
 
 **Convolutional Layers (Conv2D):** These layers automatically extract important features (such as edges, textures, etc.) from the image. 
                                     
-                                **Parameters:**
+**Parameters:**
 
-                                    - 32: The number of filters (kernels). Each filter extracts different features (edges, textures, etc.) from the input image. The more filters, the more features the model learns, but it also increases the computational load.
+- 32: The number of filters (kernels). Each filter extracts different features (edges, textures, etc.) from the input image. The more filters, the more features the model learns, but it also increases the computational load.
 
-                                    -(3, 3): The size of the convolutional filter (3x3 pixels).
+- (3, 3): The size of the convolutional filter (3x3 pixels).
 
-                                    -activation='relu': The ReLU (Rectified Linear Unit) activation function is used here to introduce non-linearity. This helps the network learn more complex patterns.
+- activation='relu': The ReLU (Rectified Linear Unit) activation function is used here to introduce non-linearity. This helps the network learn more complex patterns.
 
-                                    -input_shape=(256, 256, 3): This defines the input shape of the image (256x256 pixels with 3 color channels—RGB). This is necessary only for the first layer.
+- input_shape=(256, 256, 3): This defines the input shape of the image (256x256 pixels with 3 color channels—RGB). This is necessary only for the first layer.
 
 **Max-Pooling Layers:** These layers down-sample the image to reduce the number of parameters, making the model less prone to overfitting.
 
-                                **Parameters:**
+**Parameters:**
 
-                                    - (2, 2): The size of the pooling window (2x2). The pooling operation selects the maximum value from each 2x2 region, downsampling the feature map by a factor of 2 in both dimensions (width and height).  
+- (2, 2): The size of the pooling window (2x2). The pooling operation selects the maximum value from each 2x2 region, downsampling the feature map by a factor of 2 in both dimensions (width and height).  
 
 **Conv2D (2nd Convolutional Layer):** This is the second convolutional layer, which learns higher-level features of the image by using 64 filters (double the   number of filters from the first layer).
                                 **Parameters:**
                                  
-                                    64: The number of filters.
+- 64: The number of filters.
 
-                                    (3, 3): The filter size.
+- (3, 3): The filter size.
 
-                                    activation='relu': Again, ReLU activation is used.
+- activation='relu': Again, ReLU activation is used.
 
 **MaxPooling2D (2nd Pooling Layer)** A second max pooling layer, similar to the previous one, further downsampling the feature map.
 
-                                **Parameters:**
+**Parameters:**
 
-                                    - This will reduce the dimensions of the image from 128x128 to 64x64 (if the input image was initially 256x256). 
+- This will reduce the dimensions of the image from 128x128 to 64x64 (if the input image was initially 256x256). 
 
 **Flatten Layer** The flatten layer transforms the 2D feature maps (after convolution and pooling) into a 1D vector. This is necessary because fully connected (dense) layers expect a 1D input..
 
-                                **Parameters:**
+**Parameters:**
 
-                                    - Converts the multi-dimensional feature map into a single vector of features, which can be fed into the dense layer. 
+- Converts the multi-dimensional feature map into a single vector of features, which can be fed into the dense layer. 
 
 **Fully Connected Layer (Dense):** After extracting features, the model uses fully connected layers to make the final predictions.
                         
-                                **Parameters:**
+**Parameters:**
                                  
-                                    128: The number of neurons in this layer. This means the network has 128 parameters that will be learned during training.
+- 128: The number of neurons in this layer. This means the network has 128 parameters that will be learned during training.
 
-                                    activation='relu': Again, the ReLU activation function introduces non-linearity, allowing the model to learn complex patterns.
+- activation='relu': Again, the ReLU activation function introduces non-linearity, allowing the model to learn complex patterns.
 
 
 **Dropout Layer:** This regularization technique helps prevent overfitting by randomly setting a fraction of the input units to zero during training.
                                  
-                                **Parameter:**
+**Parameter:**
 
-                                    0.5: This means that 50% of the neurons in the previous layer will be randomly dropped during training. This helps prevent the model from memorizing the training data (overfitting).
+- 0.5: This means that 50% of the neurons in the previous layer will be randomly dropped during training. This helps prevent the model from memorizing the training data (overfitting).
 
 **Softmax Output Layer:** The softmax function is used in the output layer for multi-class classification, producing a probability distribution over the    classes.
 
-                            Parameters:
+Parameters:
 
-                                    len(label_encoder.classes_): The number of neurons in this layer corresponds to the number of unique classes in the dataset (for example, if there are 4 classes like "airplane", "bird", "drone", and "helicopter", this would be 4).
+- len(label_encoder.classes_): The number of neurons in this layer corresponds to the number of unique classes in the dataset (for example, if there are 4 classes like "airplane", "bird", "drone", and "helicopter", this would be 4).
 
-                                    activation='softmax': The softmax activation function is used for multi-class classification tasks. It converts the raw output scores of the network into a probability distribution over the classes. The output will be a vector of probabilities that sum to 1, where each value represents the probability of the input image belonging to each class.
+- activation='softmax': The softmax activation function is used for multi-class classification tasks. It converts the raw output scores of the network into a probability distribution over the classes. The output will be a vector of probabilities that sum to 1, where each value represents the probability of the input image belonging to each class.
 
 ### Complie the Model
 This is the first model we are compiling using multi-class classification. We are using 'adam' optimizer and 'sparse_categorical_crossentropy' loss as parameter. sparse_categorical_crossentropy is a loss function used in multi-class classification problems, where each sample belongs to exactly one class out of many possible classes.
@@ -244,7 +247,7 @@ After training a model, evaluating its performance on a separate dataset (such a
 
 In this process we performed model evaluation and model prediction. It is key to understand the difference of model evaluation and model predictions. 
 
-![Model Evaluation vs Model Predicts](images/screenshots/Img6.jpg)
+![Model Evaluation vs Model Predicts](images/screenshots/img6.jpg)
 
 **Model Evaluation of First CNN model**
 print(f"Test Accuracy: {model_first_test_accuracy:.2f}")
@@ -275,39 +278,40 @@ This indicates that the model correctly classified 85.23% of the test images in 
 2. Classification Report Explanation
 The classification report gives us a detailed breakdown of the model's performance across individual classes (AIRPLANE, BIRD, DRONE, HELICOPTER). It shows four important metrics: precision, recall, f1-score, and support. Let’s go over each of these metrics and understand the model's behavior.
 
-- Precision
+>- Precision
 Precision tells us how many of the instances the model predicted as a certain class were actually that class. For example:
 
-AIRPLANE Precision = 0.17, meaning only 17% of the images predicted as AIRPLANE were actually AIRPLANE. This is quite low.
+>>- AIRPLANE Precision = 0.17, meaning only 17% of the images predicted as AIRPLANE were actually AIRPLANE. This is quite low.
 
-DRONE Precision = 0.42, which means 42% of the images predicted as DRONE were actually DRONE.
+>>- DRONE Precision = 0.42, which means 42% of the images predicted as DRONE were actually DRONE.
 
 - Recall
-Recall tells us how many of the actual instances of a class were correctly identified by the model. For example:
+    - Recall tells us how many of the actual instances of a class were correctly identified by the model. For example:
 
-AIRPLANE Recall = 0.11, which means the model correctly identified only 11% of actual AIRPLANE images.
+    - AIRPLANE Recall = 0.11, which means the model correctly identified only 11% of actual AIRPLANE images.
 
-DRONE Recall = 0.45, meaning the model correctly identified 45% of actual DRONE images.
+    - DRONE Recall = 0.45, meaning the model correctly identified 45% of actual DRONE images.
 
-HELICOPTER Recall = 0.34, meaning it correctly identified 34% of HELICOPTER images.
+    - HELICOPTER Recall = 0.34, meaning it correctly identified 34% of HELICOPTER images.
 
 - F1-Score
-The F1-score is the harmonic mean of precision and recall. It is useful when we need a balance between precision and recall:
+    - The F1-score is the harmonic mean of precision and recall. It is useful when we need a balance between precision and recall:
 
-AIRPLANE F1-score = 0.13, which is very low, indicating poor performance on predicting AIRPLANE images.
+    - AIRPLANE F1-score = 0.13, which is very low, indicating poor performance on predicting AIRPLANE images.
 
-DRONE F1-score = 0.43, which is higher than others, but still below the ideal score of 1.0.
+    - DRONE F1-score = 0.43, which is higher than others, but still below the ideal score of 1.0.
 
-HELICOPTER F1-score = 0.29, which also reflects poor performance in predicting HELICOPTER images.
+    - HELICOPTER F1-score = 0.29, which also reflects poor performance in predicting HELICOPTER images.
 
 - Support
-Support refers to the number of actual instances of each class in the dataset:
+    - Support refers to the number of actual instances of each class in the dataset:
 
-AIRPLANE has 128 images, BIRD has 123, DRONE has 234, and HELICOPTER has 111.
+    - AIRPLANE has 128 images, BIRD has 123, DRONE has 234, and HELICOPTER has 111.
 
 These numbers tell us the distribution of images in the test set. DRONE has the most instances, while HELICOPTER has the least.
 
 3. Key Insights from the Report:
+
 Accuracy of 0.31 in the classification report suggests that while the model's overall accuracy was 85%, its performance is actually poor when broken down by class. This discrepancy could be due to class imbalance or poor model generalization.
 
 The model struggles significantly with AIRPLANE, BIRD, and HELICOPTER classes, as reflected by the very low precision and recall for these classes.
@@ -334,6 +338,7 @@ While the model achieves decent overall accuracy (85%), it has issues with class
 In the scope of this project I explore some more models to compare the performance. We will notice improvement in the first model by using more advance hyper parameter. For learning and exploration of the dataset I tried MobileNetV2 and we will understand the result, performance and improvement of it. Let's proceed..
 
 **Second CNN Model**
+
 We will now define the second CNN model for this project. The model architecture is same and number of layers are same. The key change in the second model is adding hyperparameters. hyperparameters are the settings or configurations that we define before training the model. These hyperparameters directly influence the performance of the model, and finding the right set of hyperparameters is crucial to obtaining good results. Hyperparameters are different from the model parameters (such as weights and biases), which are learned during training. We are using 'adamx' optimizer, 'categorical_crossentropy' loss. We are further prprocessing the image using normalization. and learning_rate while compiling the model to improve the performance of the model.
 
 The learning rate determines how much the weights of the model are adjusted with respect to the loss function after each update.
@@ -341,6 +346,7 @@ Optimizers are algorithms used to update the model weights based on the loss fun
 Normalization helps to accelerate the convergence of the model during training and ensures that the model is trained on data in a consistent format.
 
 **Compile second model**
+
 Categorical Cross-Entropy is a loss function commonly used for multi-class classification tasks, where the goal is to assign an image or input to one of multiple possible classes. It's widely used in image classification problems where the target labels are one-hot encoded (i.e., each label is represented as a vector where only one position is 1, corresponding to the correct class, and all others are 0). Admax is a newer optimization algorithm designed to combine the benefits of Adam and AMSGrad.
 
 AdamX is an extension of the Adam optimization algorithm, which is widely used in deep learning for its adaptive learning rate capabilities. Adam (short for Adaptive Moment Estimation) combines the benefits of both AdaGrad and RMSprop, adapting the learning rate based on the first and second moments (mean and variance) of the gradients.
@@ -572,6 +578,7 @@ A second Dropout layer with a 50% rate is added again to prevent overfitting and
 This architecture is suitable for image classification tasks where we need a model that is both accurate and efficient, leveraging pre-trained feature extraction with MobileNetV2.
 
 **Explanation on parameter used in third model**
+
 Batch Size (bs): Determines the number of samples to process before updating the model’s weights. A batch size of 32 is a common default choice that offers a balance between training time and model stability.
 
 Learning Rate (lr): Controls the step size for weight updates. A smaller value (0.0001) provides more stable, gradual learning.
