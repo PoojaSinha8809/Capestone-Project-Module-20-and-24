@@ -774,6 +774,6 @@ The model execution time is high so prefer to run on GPU to avoid crashing the k
 
 Some packages are required to be install on anaconda environment to import. For example - tensorflow, sklearn, matplotlib etc. 
 
-Reference to Jupyter Notebook file : https://github.com/PoojaSinha8809/Practical-Assignment-Module-11/blob/main/prompt_II.ipynb
+Reference to Jupyter Notebook file : https://github.com/PoojaSinha8809/Capestone-Project-Module-20-and-24/blob/main/image-classification.ipynb
 
 
