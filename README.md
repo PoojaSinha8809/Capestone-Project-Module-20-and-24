@@ -1,6 +1,4 @@
-# Capestone-Project-Module-20-and-24
-
-# Project on CNN (Deep Learning)
+# Capestone-Project-Module-20-and-24 - Project on CNN (Deep Learning)
 
 # Project Name - "CNN based Image Classification"
 
@@ -760,7 +758,7 @@ A significant next step is extending the model for real-time drone detection in 
 
 Deploying an image classification model for commercial use is a complex, multi-faceted process that encompasses more than just the technical aspects of model optimization and deployment. It requires a strategic alignment with business objectives, seamless integration into existing workflows, and a focus on user experience, security, and scalability. By ensuring that the model is fully integrated into business operations, continuously monitored for performance, and optimized for both cost and efficiency, the deployment can provide significant value and drive business outcomes. Moreover, establishing a robust system for ongoing model improvements, monitoring, and retraining ensures the model remains adaptable and effective as business requirements and data evolve over time.
 
-## Reference to Jupyter Notebook and steps to run the file
+## Reference to Jupyter Notebook and Steps to run the file
 
 Before running the script please replace the content of data folder to the kaggle dataset link attached in the section **Source Dataset and Insights on data** in the begining of the page. 
 
