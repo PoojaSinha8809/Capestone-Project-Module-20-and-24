@@ -126,7 +126,7 @@ Data augmentation is a technique used to artificially expand the size of a train
 
 In this project, we are using data augemtation on training dataset and only rescaling in testing and validation dataset to use in the first model we will be creating based on CNN architecture. 
 
-### Model Development: 
+### First Model Development: 
 In this project we first created Convolutional Neural Network (CNN) using Keras' Sequential API. It’s designed for image classification, where the input is an image of shape (256, 256, 3) (256x256 pixels with 3 color channels).
 
 Let's understand the model archietcture:
@@ -195,12 +195,12 @@ Use the function Sequential() to create a neural network model with the followin
 
 - activation='softmax': The softmax activation function is used for multi-class classification tasks. It converts the raw output scores of the network into a probability distribution over the classes. The output will be a vector of probabilities that sum to 1, where each value represents the probability of the input image belonging to each class.
 
-### Complie the Model
+### Complie First Model
 This is the first model we are compiling using multi-class classification. We are using 'adam' optimizer and 'sparse_categorical_crossentropy' loss as parameter. sparse_categorical_crossentropy is a loss function used in multi-class classification problems, where each sample belongs to exactly one class out of many possible classes.
 
 When dataset uses integer-encoded labels (i.e., labels are integer indices for the classes), sparse_categorical_crossentropy should be used.                                   
 
-### Training the Model
+### Training First Model
 Now, we can train the model using train_generator and valid_generator (created using Data Augmentation) that return integer-encoded labels. We will also use epochs, An epoch refers to one complete cycle through the entire training dataset during the training process of a model. In machine learning, when training a model, we pass the data through the network multiple times to optimize its weights and biases, helping the model learn to make better predictions.
 
 we are training the model on Epoch value of 10. 
@@ -242,7 +242,7 @@ we are training the model on Epoch value of 10.
 
 >- The improvement in validation accuracy indicates that the model is not overfitting, which is a good sign of generalization capability.
 
-### Evaluation and Accuracy of Model:
+### Evaluation and Accuracy of First Model:
 
 After training a model, evaluating its performance on a separate dataset (such as the validation or test set) is essential to understand how well it generalizes to unseen data. Accuracy is one of the most commonly used metrics to evaluate classification models, but other metrics like precision, recall, and F1-score are also essential depending on the problem.
 
@@ -274,39 +274,39 @@ This indicates that the model correctly classified 85.23% of the test images in 
 
 The classification report gives us a detailed breakdown of the model's performance across individual classes (AIRPLANE, BIRD, DRONE, HELICOPTER). It shows four important metrics: precision, recall, f1-score, and support. Let’s go over each of these metrics and understand the model's behavior.
 
->- Precision:
+- Precision:
 
 Precision tells us how many of the instances the model predicted as a certain class were actually that class. For example:
 
->>- AIRPLANE Precision = 0.17, meaning only 17% of the images predicted as AIRPLANE were actually AIRPLANE. This is quite low.
+>- AIRPLANE Precision = 0.17, meaning only 17% of the images predicted as AIRPLANE were actually AIRPLANE. This is quite low.
 
->>- DRONE Precision = 0.42, which means 42% of the images predicted as DRONE were actually DRONE.
+>- DRONE Precision = 0.42, which means 42% of the images predicted as DRONE were actually DRONE.
 
->- Recall
+- Recall
 
->>- Recall tells us how many of the actual instances of a class were correctly identified by the model. For example:
+>- Recall tells us how many of the actual instances of a class were correctly identified by the model. For example:
 
->>- AIRPLANE Recall = 0.11, which means the model correctly identified only 11% of actual AIRPLANE images.
+>- AIRPLANE Recall = 0.11, which means the model correctly identified only 11% of actual AIRPLANE images.
 
->>- DRONE Recall = 0.45, meaning the model correctly identified 45% of actual DRONE images.
+>- DRONE Recall = 0.45, meaning the model correctly identified 45% of actual DRONE images.
 
->>- HELICOPTER Recall = 0.34, meaning it correctly identified 34% of HELICOPTER images.
+>- HELICOPTER Recall = 0.34, meaning it correctly identified 34% of HELICOPTER images.
 
->- F1-Score
+- F1-Score
 
->>- The F1-score is the harmonic mean of precision and recall. It is useful when we need a balance between precision and recall:
+>- The F1-score is the harmonic mean of precision and recall. It is useful when we need a balance between precision and recall:
 
->>- AIRPLANE F1-score = 0.13, which is very low, indicating poor performance on predicting AIRPLANE images.
+>- AIRPLANE F1-score = 0.13, which is very low, indicating poor performance on predicting AIRPLANE images.
 
->>- DRONE F1-score = 0.43, which is higher than others, but still below the ideal score of 1.0.
+>- DRONE F1-score = 0.43, which is higher than others, but still below the ideal score of 1.0.
 
->>- HELICOPTER F1-score = 0.29, which also reflects poor performance in predicting HELICOPTER images.
+>- HELICOPTER F1-score = 0.29, which also reflects poor performance in predicting HELICOPTER images.
 
->- Support
+- Support
     
->>- Support refers to the number of actual instances of each class in the dataset:
+>- Support refers to the number of actual instances of each class in the dataset:
 
->>- AIRPLANE has 128 images, BIRD has 123, DRONE has 234, and HELICOPTER has 111.
+>- AIRPLANE has 128 images, BIRD has 123, DRONE has 234, and HELICOPTER has 111.
 
 
 These numbers tell us the distribution of images in the test set. DRONE has the most instances, while HELICOPTER has the least.
@@ -323,13 +323,13 @@ HELICOPTER also has a relatively low F1-score, indicating that the model is not 
 
 4. **Suggestions for Improvement:**
 
->- Class Imbalance: The model seems to have a class imbalance problem. DRONE is likely overrepresented, and the model may have learned to predict it more easily. Consider using techniques like class weighting, oversampling, or undersampling to address this issue.
+- Class Imbalance: The model seems to have a class imbalance problem. DRONE is likely overrepresented, and the model may have learned to predict it more easily. Consider using techniques like class weighting, oversampling, or undersampling to address this issue.
 
->- Further Training: The model may require more epochs of training, better data augmentation, or fine-tuning of the hyperparameters.
+- Further Training: The model may require more epochs of training, better data augmentation, or fine-tuning of the hyperparameters.
 
->- Model Architecture: Consider using more sophisticated architectures, such as pre-trained models like MobileNetV2, ResNet, or Inception, which could help improve feature extraction and overall classification.
+- Model Architecture: Consider using more sophisticated architectures, such as pre-trained models like MobileNetV2, ResNet, or Inception, which could help improve feature extraction and overall classification.
 
->- Cross-Validation: Implementing cross-validation to better assess the model’s performance and avoid overfitting could lead to better generalization.
+- Cross-Validation: Implementing cross-validation to better assess the model’s performance and avoid overfitting could lead to better generalization.
 
 5. Conclusion:
 
@@ -340,7 +340,7 @@ While the model achieves decent overall accuracy (85%), it has issues with class
 
 In the scope of this project I explore some more models to compare the performance. We will notice improvement in the first model by using more advance hyper parameter. For learning and exploration of the dataset I tried MobileNetV2 and we will understand the result, performance and improvement of it. Let's proceed..
 
-**Second CNN Model**
+### Create Second CNN Model
 
 We will now define the second CNN model for this project. The model architecture is same and number of layers are same. The key change in the second model is adding hyperparameters. hyperparameters are the settings or configurations that we define before training the model. These hyperparameters directly influence the performance of the model, and finding the right set of hyperparameters is crucial to obtaining good results. Hyperparameters are different from the model parameters (such as weights and biases), which are learned during training. We are using 'adamx' optimizer, 'categorical_crossentropy' loss. We are further prprocessing the image using normalization. and learning_rate while compiling the model to improve the performance of the model.
 
@@ -348,7 +348,7 @@ The learning rate determines how much the weights of the model are adjusted with
 Optimizers are algorithms used to update the model weights based on the loss function.
 Normalization helps to accelerate the convergence of the model during training and ensures that the model is trained on data in a consistent format.
 
-**Compile second model**
+### Compile Second CNN Model
 
 Categorical Cross-Entropy is a loss function commonly used for multi-class classification tasks, where the goal is to assign an image or input to one of multiple possible classes. It's widely used in image classification problems where the target labels are one-hot encoded (i.e., each label is represented as a vector where only one position is 1, corresponding to the correct class, and all others are 0). Admax is a newer optimization algorithm designed to combine the benefits of Adam and AMSGrad.
 
@@ -359,7 +359,7 @@ Adam is a widely used and reliable optimizer, but it can sometimes be inefficien
 
 AdamX builds on Adam's core strengths but includes additional mechanisms to better handle specific challenges, like reducing overfitting or managing noisy gradients in complex models.
 
-We added additional Data preprocessing using custom DataGenerator class()
+**We added additional Data preprocessing using custom DataGenerator class()**
 
 Here we created custom DataGenerator. which is designed to be used with Keras or TensorFlow’s fit() function, especially when we have a large dataset that doesn’t fit entirely into memory. It is a subclass of Sequence, which is a base class provided by Keras for writing data generators. The purpose of the DataGenerator class is to load and yield batches of data (images and their corresponding labels) for training.
 
@@ -368,7 +368,7 @@ Custom generators are used when we need highly specialized functionality that is
 In the previous model we used ImageDataGenerator for data preprocessing. Let's look at the key difference between both.
 ![ImageGenerator and Data Generator](images/screenshots/Img7.jpg)
 
-**Training second model**
+### Training Second CNN Model
 
 Now we will tarin the second model using the traina and validation data generated using DataGenerator. We will increase the Epoch time as well.. 
 This time we use Epoch value as 15. 
@@ -407,7 +407,7 @@ Although the validation accuracy fluctuates, it doesn't dramatically decrease af
 
 >- This behavior is common in deep learning models as they converge towards an optimal state.
 
-### Summary of Model Performance:
+### Summary of Second Model Performance:
 
 **Epoch 1:**
 
@@ -447,19 +447,19 @@ Like we did in first model, we will also like to view classifcation report on se
 
 **Classification Report of Model Prediction**
 
-![Second Model Classification Report](images/screenshots/img15.jpg)
+![Second Model Classification Report](images/screenshots/Img15.jpg)
 
 **Overall Performance Explanation:**
 
->- The model has performed well with a 91% accuracy, which indicates that it is correctly classifying most images in the test dataset.
+- The model has performed well with a 91% accuracy, which indicates that it is correctly classifying most images in the test dataset.
 
->- Precision and Recall are good for all classes, especially for DRONE, where the precision and recall are very high (close to 1), indicating that the model is very good at classifying drones.
+- Precision and Recall are good for all classes, especially for DRONE, where the precision and recall are very high (close to 1), indicating that the model is very good at classifying drones.
 
->- The F1-scores across the board are balanced, showing that the model is doing well in both precision and recall for each class.
+- The F1-scores across the board are balanced, showing that the model is doing well in both precision and recall for each class.
 
->- The macro average indicates that, on average, the model is performing similarly across all classes.
+- The macro average indicates that, on average, the model is performing similarly across all classes.
 
->- The weighted average takes the class imbalances into account (since some classes like DRONE have more images), and it shows that the model is still performing well overall, with high precision and recall.
+- The weighted average takes the class imbalances into account (since some classes like DRONE have more images), and it shows that the model is still performing well overall, with high precision and recall.
 
 **Conclusion:**
 
@@ -477,13 +477,13 @@ We will first prepare the data and for that we will first try to convert the dat
 
 Setting the training images to the 224x224 dimension for MobileNetV2 is necessary to ensure:
 
->- Compatibility with the model's architecture (which expects this specific input size).
+- Compatibility with the model's architecture (which expects this specific input size).
 
->- Proper utilization of pre-trained weights.
+- Proper utilization of pre-trained weights.
 
->- Computational efficiency.
+- Computational efficiency.
 
->- Consistency and reliable model performance across training and inference.
+- Consistency and reliable model performance across training and inference.
 
 The dimension we set for the training and testing dataset is 224*224*3. The dimensions 224x224 pixels with 3 color channels (RGB), is the standard input size for MobileNetV2 and many other pre-trained models.
 
@@ -493,33 +493,33 @@ Let's understand the Model architecture.
 
 1. Base Model (MobileNetV2)
 
->- MobileNetV2 is used as a feature extractor. It is a pre-trained model that has been trained on a large dataset (e.g., ImageNet), but here, the top layers (classification layers) are excluded (include_top=False), allowing us to use its feature extraction capabilities.
+- MobileNetV2 is used as a feature extractor. It is a pre-trained model that has been trained on a large dataset (e.g., ImageNet), but here, the top layers (classification layers) are excluded (include_top=False), allowing us to use its feature extraction capabilities.
 
->- input_tensor=Input(shape=input_shape) specifies the input shape for the model. The model expects input images with the given shape (e.g., (224, 224, 3) for color images of size 224x224).
+- input_tensor=Input(shape=input_shape) specifies the input shape for the model. The model expects input images with the given shape (e.g., (224, 224, 3) for color images of size 224x224).
 
->- The MobileNetV2 model has learned rich feature representations from a large dataset, which will be fine-tuned for the new dataset through transfer learning.
+- The MobileNetV2 model has learned rich feature representations from a large dataset, which will be fine-tuned for the new dataset through transfer learning.
 
 2. Freezing Layers
 
->- This loop freezes all the layers in the base model except for the last 4 layers. The frozen layers are not updated during training, which reduces training time and prevents overfitting, especially when we don’t have a large dataset.
+- This loop freezes all the layers in the base model except for the last 4 layers. The frozen layers are not updated during training, which reduces training time and prevents overfitting, especially when we don’t have a large dataset.
 
->- This helps the model retain the features learned from the original dataset (like ImageNet), and only the last layers (which are more specific to our task) will be fine-tuned.
+- This helps the model retain the features learned from the original dataset (like ImageNet), and only the last layers (which are more specific to our task) will be fine-tuned.
 
 3. Sequential Model
 
->- This creates a Sequential model, where layers are stacked one after the other. Each layer takes the output of the previous layer as its input.
+- This creates a Sequential model, where layers are stacked one after the other. Each layer takes the output of the previous layer as its input.
 
 4. Base Model (MobileNetV2) as Feature Extractor
 
->- The MobileNetV2 base model is added to the new model. It will extract feature maps from the input image, producing high-level features (e.g., edges, textures, patterns).
+- The MobileNetV2 base model is added to the new model. It will extract feature maps from the input image, producing high-level features (e.g., edges, textures, patterns).
 
 5. Average Pooling Layer
 
->- This AveragePooling2D layer reduces the spatial dimensions of the feature map produced by MobileNetV2. By applying a 2x2 pooling operation, it reduces the height and width of the feature map by half, retaining the important features while reducing the computational load.
+- This AveragePooling2D layer reduces the spatial dimensions of the feature map produced by MobileNetV2. By applying a 2x2 pooling operation, it reduces the height and width of the feature map by half, retaining the important features while reducing the computational load.
 
 6. Flatten Layer
 
->- The Flatten layer converts the 2D feature maps into a 1D vector. This step is necessary because the following fully connected layers expect 1D input.
+- The Flatten layer converts the 2D feature maps into a 1D vector. This step is necessary because the following fully connected layers expect 1D input.
 
 7. Fully Connected Layer (Dense Layer)
 
@@ -533,9 +533,9 @@ The Dropout layer with a dropout rate of 50% is added to reduce overfitting. It 
 
 9. Second Fully Connected Layer
 
->- Another Dense layer with 50 units and ReLU activation is added. This further refines the features learned by the previous dense layer.
+- Another Dense layer with 50 units and ReLU activation is added. This further refines the features learned by the previous dense layer.
 
->- The number of units in this layer is smaller, which can help to learn more compact representations.
+- The number of units in this layer is smaller, which can help to learn more compact representations.
 
 10. Dropout Layer
 
@@ -543,88 +543,89 @@ A second Dropout layer with a 50% rate is added again to prevent overfitting and
 
 11. Output Layer
 
->- The final Dense layer is the output layer. The number of units is equal to class_number, which is the number of categories in the classification task.
+- The final Dense layer is the output layer. The number of units is equal to class_number, which is the number of categories in the classification task.
 
->- The Softmax activation function is used here because the model is performing multi-class classification. It produces probabilities for each class, ensuring that the sum of the output is 1, which can be interpreted as the model's confidence in each class.
+- The Softmax activation function is used here because the model is performing multi-class classification. It produces probabilities for each class, ensuring that the sum of the output is 1, which can be interpreted as the model's confidence in each class.
 
 This architecture is suitable for image classification tasks where we need a model that is both accurate and efficient, leveraging pre-trained feature extraction with MobileNetV2.
 
 **Explanation on parameter used in third model**
 
->- **Batch Size (bs):** 
+- **Batch Size (bs):** 
 
 Determines the number of samples to process before updating the model’s weights. A batch size of 32 is a common default choice that offers a balance between training time and model stability.
 
->- **Learning Rate (lr):** 
+- **Learning Rate (lr):** 
 
 Controls the step size for weight updates. A smaller value (0.0001) provides more stable, gradual learning.
 
->- **Image Size (size and shape):**
+- **Image Size (size and shape):**
 
 Specifies the expected size of the input images (224x224 pixels with 3 color channels). This is a typical input size for models pre-trained on datasets like ImageNet.
 
->- **Epochs (epochs):**
+- **Epochs (epochs):**
 
 The number of times the model will iterate over the training data. With 10 epochs, the model will have a limited but useful number of opportunities to learn from the data.
 
->- **Class Number (class_number):** 
+- **Class Number (class_number):** 
 
 Indicates that the model will classify input images into 4 categories.
 
 ### Compile third model
+
 In the model compilation, it will onfigures the model to use categorical cross-entropy as the loss function, accuracy as the evaluation metric, and Adam optimizer for training. 
 
 ### Training third model
 
 Let's understand the training result of the model. 
 
-![Third Model Training Log](images/screenshots/img16.jpg)
+![Third Model Training Log](images/screenshots/Img16.jpg)
 
 In the training logs provided, there are several key points that can be observed:
 
 1. Training Loss vs Validation Loss:
 
->During the training process, we can see that the training loss is consistently decreasing, which is expected as the model learns from the training data.
+> During the training process, we can see that the training loss is consistently decreasing, which is expected as the model learns from the training data.
 
->However, the validation loss is increasing and remains high throughout the epochs (e.g., 17.22 at epoch 1, going up to over 70 in epoch 20). This suggests that the model is not generalizing well to unseen data (the validation data).
+> However, the validation loss is increasing and remains high throughout the epochs (e.g., 17.22 at epoch 1, going up to over 70 in epoch 20). This suggests that the model is not generalizing well to unseen data (the validation data).
 
 2. Training Accuracy vs Validation Accuracy:
 
->Training accuracy starts high at 79.75% in epoch 1 and increases to 99.76% by epoch 20, indicating the model is learning and becoming increasingly accurate on the training data.
+> Training accuracy starts high at 79.75% in epoch 1 and increases to 99.76% by epoch 20, indicating the model is learning and becoming increasingly accurate on the training data.
 
->The validation accuracy, however, is stuck at 15.80% for every epoch. This suggests a serious issue with the model's ability to generalize and perform well on the validation data.
+> The validation accuracy, however, is stuck at 15.80% for every epoch. This suggests a serious issue with the model's ability to generalize and perform well on the validation data.
 
 3. Possible Causes of Issues:
 
->- Overfitting: The most likely cause for the increasing training accuracy and the stagnant validation accuracy is overfitting. Overfitting occurs when the model learns the details and noise in the training data to the extent that it negatively impacts the performance of the model on new data (validation data).
+- Overfitting: The most likely cause for the increasing training accuracy and the stagnant validation accuracy is overfitting. Overfitting occurs when the model learns the details and noise in the training data to the extent that it negatively impacts the performance of the model on new data (validation data).
 
->High validation loss and low validation accuracy indicate that the model is fitting the training data well but failing to generalize to the validation set.
+> High validation loss and low validation accuracy indicate that the model is fitting the training data well but failing to generalize to the validation set.
 
 4. Possible Reasons for the Observed Behavior:
 
->- Model is Too Complex for the Data: The model might be too complex relative to the dataset, leading it to memorize the training data instead of learning generalizable features. If the model is too large or has too many parameters relative to the size of the dataset, it can lead to overfitting.
+- Model is Too Complex for the Data: The model might be too complex relative to the dataset, leading it to memorize the training data instead of learning generalizable features. If the model is too large or has too many parameters relative to the size of the dataset, it can lead to overfitting.
 
 5. Data Issues:
 
->- Mismatch in training and validation data: If the training data is very different from the validation data, the model could learn specific patterns that don’t generalize. For example, if the validation data distribution is quite different from the training set, or if the validation set is too small or poorly labeled, it can result in poor validation performance.
+- Mismatch in training and validation data: If the training data is very different from the validation data, the model could learn specific patterns that don’t generalize. For example, if the validation data distribution is quite different from the training set, or if the validation set is too small or poorly labeled, it can result in poor validation performance.
 
->- Data leakage or improper split: If there’s any overlap between training and validation sets or the data split is not done correctly, the model could be inadvertently learning from the validation set during training.
+- Data leakage or improper split: If there’s any overlap between training and validation sets or the data split is not done correctly, the model could be inadvertently learning from the validation set during training.
 
->- Lack of Regularization or Data Augmentation: Techniques like dropout, L2 regularization, or data augmentation (to artificially increase training data variety) can help prevent overfitting. If these techniques aren't applied, the model may learn very specific features from the training data that don’t generalize to unseen data.
+- Lack of Regularization or Data Augmentation: Techniques like dropout, L2 regularization, or data augmentation (to artificially increase training data variety) can help prevent overfitting. If these techniques aren't applied, the model may learn very specific features from the training data that don’t generalize to unseen data.
 
->- Learning Rate or Optimizer Issues: The learning rate could be too high, causing the model to overshoot the optimal parameters and fail to converge well on the validation set.
+- Learning Rate or Optimizer Issues: The learning rate could be too high, causing the model to overshoot the optimal parameters and fail to converge well on the validation set.
 
 5. Steps to Improve the Situation:
 
->- Use Early Stopping: This technique can help stop the training process if the validation loss does not improve after a certain number of epochs. It can prevent overfitting by halting training before the model starts to memorize the data.
+- Use Early Stopping: This technique can help stop the training process if the validation loss does not improve after a certain number of epochs. It can prevent overfitting by halting training before the model starts to memorize the data.
 
->- Reduce Model Complexity: If overfitting is suspected, try using a simpler model (with fewer layers/parameters) to reduce the chance of memorizing the data.
+- Reduce Model Complexity: If overfitting is suspected, try using a simpler model (with fewer layers/parameters) to reduce the chance of memorizing the data.
 
->- Regularization: Use techniques like dropout or L2 regularization to prevent the model from overfitting.
+- Regularization: Use techniques like dropout or L2 regularization to prevent the model from overfitting.
 
->- Data Augmentation: Apply data augmentation techniques like rotation, flipping, zooming, and cropping to increase the variability in the training data, which can help the model generalize better.
+- Data Augmentation: Apply data augmentation techniques like rotation, flipping, zooming, and cropping to increase the variability in the training data, which can help the model generalize better.
 
->- Learning Rate Adjustment: Consider reducing the learning rate or using a learning rate scheduler to gradually decrease the learning rate as the training progresses.
+- Learning Rate Adjustment: Consider reducing the learning rate or using a learning rate scheduler to gradually decrease the learning rate as the training progresses.
 
 Ensure Proper Data Split: Verify that the training and validation sets are well-balanced, and that no data leakage occurs between them.
 
@@ -642,47 +643,47 @@ Let's find analyse the report on evaluation and prediction
 
 **Overall Metrics:**
 
->- Accuracy: 0.19 (19%)
+- Accuracy: 0.19 (19%)
 
->>This indicates the overall accuracy of the model. It suggests that the model is very poor at making correct predictions across all classes.
+>> This indicates the overall accuracy of the model. It suggests that the model is very poor at making correct predictions across all classes.
 
->- Macro Average:
+- Macro Average:
 
->>- Precision: 0.80, Recall: 0.25, F1-score: 0.08
+>> - Precision: 0.80, Recall: 0.25, F1-score: 0.08
 
->>- Macro Average Precision: The average precision across all classes is 80%. This seems high, but it's skewed by the 100% precision values in the first three classes (Airplane, Bird, and Drone).
+>> - Macro Average Precision: The average precision across all classes is 80%. This seems high, but it's skewed by the 100% precision values in the first three classes (Airplane, Bird, and Drone).
 
->>- Macro Average Recall: The recall is low at 0.25, meaning that, on average, the model is not detecting most of the true instances across the classes.
+>> - Macro Average Recall: The recall is low at 0.25, meaning that, on average, the model is not detecting most of the true instances across the classes.
 
->>- Macro Average F1-score: The F1-score is very low at 0.08, indicating that the model is struggling to maintain a balance between precision and recall across the classes.
+>> - Macro Average F1-score: The F1-score is very low at 0.08, indicating that the model is struggling to maintain a balance between precision and recall across the classes.
 
->- Weighted Average:
+- Weighted Average:
 
->>- Precision: 0.85, Recall: 0.19, F1-score: 0.06
+>> - Precision: 0.85, Recall: 0.19, F1-score: 0.06
 
->>- Weighted Average Precision: The weighted precision is high due to the perfect precision scores for the first three classes, but it's important to note that the model is failing to capture the majority of the instances.
+>> - Weighted Average Precision: The weighted precision is high due to the perfect precision scores for the first three classes, but it's important to note that the model is failing to capture the majority of the instances.
 
->>- Weighted Average Recall and F1-score: The low recall and F1-score are driven by the poor performance in detecting true positives across most of the classes.
+>> - Weighted Average Recall and F1-score: The low recall and F1-score are driven by the poor performance in detecting true positives across most of the classes.
 
 **Key Issues & Explanation:**
 
->- Class Imbalance: The model is clearly favoring "Helicopter" in the predictions. While it achieves perfect recall for Helicopter, it fails to detect the other classes (Airplane, Bird, Drone). The weighted average precision is high, but the overall model performance is bad.
+- Class Imbalance: The model is clearly favoring "Helicopter" in the predictions. While it achieves perfect recall for Helicopter, it fails to detect the other classes (Airplane, Bird, Drone). The weighted average precision is high, but the overall model performance is bad.
 
->- Prediction Failure: The model seems to predict "Airplane", "Bird", and "Drone" with 100% precision, but it never actually predicts any true instances of these classes (recall is 0). This might be due to a misalignment between the training and validation data, or a problem in how the model was trained.
+- Prediction Failure: The model seems to predict "Airplane", "Bird", and "Drone" with 100% precision, but it never actually predicts any true instances of these classes (recall is 0). This might be due to a misalignment between the training and validation data, or a problem in how the model was trained.
 
 **Recommendations:**
 
->- Model Review: Investigate how the model is being trained. It could be an issue with class weights, insufficient training data, or a mismatch in training and validation datasets.
+- Model Review: Investigate how the model is being trained. It could be an issue with class weights, insufficient training data, or a mismatch in training and validation datasets.
 
->- Data Augmentation/Resampling: We might need to balance the dataset (if it's imbalanced) or apply data augmentation to create more variety in the training set.
+- Data Augmentation/Resampling: We might need to balance the dataset (if it's imbalanced) or apply data augmentation to create more variety in the training set.
 
->- Evaluation Metrics: Ensure that the evaluation metrics (such as recall, precision, and F1-score) are appropriate for the task.We might also need to experiment with different hyperparameters or models.
+- Evaluation Metrics: Ensure that the evaluation metrics (such as recall, precision, and F1-score) are appropriate for the task.We might also need to experiment with different hyperparameters or models.
 
 **Additional Improvement for the third model**
 
->- Improve Model's Sensitivity to Minority Classes
->- Improving Model Architecture, in case of pre-trained model like MobileNetV2, we can use fine-tunning layers and freeze the earlier layers and fine-tune the deep layers based on the classification performance for each class.
->- Implement K-Fold Cross-Validation to ensure the model's performance is not biased.
+- Improve Model's Sensitivity to Minority Classes
+- Improving Model Architecture, in case of pre-trained model like MobileNetV2, we can use fine-tunning layers and freeze the earlier layers and fine-tune the deep layers based on the classification performance for each class.
+- Implement K-Fold Cross-Validation to ensure the model's performance is not biased.
 
 In conclusion, while the model is predicting Helicopter well, it is failing drastically with the other classes, making it an ineffective classifier in its current state.
 
@@ -736,7 +737,7 @@ For future improvements, several key areas can be explored to further optimize t
 
 One of the primary avenues for improvement is conducting a comparative analysis of different classification algorithms. Exploring alternative machine learning techniques, such as **Support Vector Machines (SVM)** and **K-Means Clustering**, could provide valuable insights into their respective strengths and weaknesses. SVM, for example, excels in high-dimensional spaces and might offer better margin separation for certain datasets, whereas K-Means can be useful for clustering and classifying images based on similarity. By evaluating these approaches alongside the current CNN and MobileNetV2 models, we can determine which algorithm offers the most efficient and accurate performance for drone image classification. This comparison will help identify the most suitable model for various operational environments and further improve accuracy, scalability, and robustness.
 
-**K-fold cross-validation**
+**K-fold cross-validation:**
 
 K-fold cross-validation helps in improving the generalization, reliability, and efficiency of an image classification model. By evaluating performance across different subsets of data, it provides a more accurate measure of how well the model will perform on unseen data, ultimately leading to better model selection, tuning, and deployment.
 
