@@ -704,9 +704,15 @@ let's review the tabular view of all three performance and find the best model f
 
 With above evaluation details on all three models used in the scope of this image classification. Let's review the plots created on training and loss accuracy for all three models. 
 
+- First Models Training Vs Accuracy
+
 ![First Models Training Vs Accuracy](images/screenshots/Img11.jpg)
 
+- Second Models Training Vs Accuracy
+
 ![Second Models Training Vs Accuracy](images/screenshots/Img14.jpg)
+
+- Third Models Training Vs Accuracy
 
 ![Third Models Training Vs Accuracy](images/screenshots/Img18.jpg)
 
