@@ -9,7 +9,7 @@ Drone technology has witnessed rapid growth in recent years, finding application
 
 In this project, I aim to build a deep learning model for image classification to classify images containing various objects, specifically focusing on detecting drones, helicopters, airplanes, and birds. The dataset contains images of these objects, and the task is to develop a model capable of distinguishing between these categories.
 
-The dataset used for this project is the Kaggle Drone Detection Dataset, which can be found at the following link
+The dataset used for this project is the Kaggle Drone Detection Dataset, which can be found in Source Dataset section below. 
 
 **Objective:**
 
