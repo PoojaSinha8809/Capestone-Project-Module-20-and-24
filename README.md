@@ -258,7 +258,7 @@ Test Accuracy: 0.85
 
 **Classification Report of Model Prediction**
 
-![Model Classification Report](images/screenshots/img12.jpg)
+![Model Classification Report](images/screenshots/Img12.jpg)
 
 
 
