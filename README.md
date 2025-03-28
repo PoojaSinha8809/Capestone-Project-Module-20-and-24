@@ -744,11 +744,11 @@ Due to the computational intensity and the complexity of the model, it was trick
 
 GridSearchCV is useful for hyperparameter optimization, but due to the computational cost involved, especially in deep learning-based image classification tasks, it is typically more efficient to:
 
-Use RandomizedSearchCV or Bayesian Optimization for hyperparameter tuning.
+- Use RandomizedSearchCV or Bayesian Optimization for hyperparameter tuning.
 
-Leverage pre-trained models and transfer learning to reduce the computational load.
+- Leverage pre-trained models and transfer learning to reduce the computational load.
 
-Use more efficient libraries for hyperparameter optimization, such as Optuna or Ray Tune.
+- Use more efficient libraries for hyperparameter optimization, such as Optuna or Ray Tune.
 
 In practice, for large image datasets and deep learning models, alternative methods often offer a better balance between performance and resource usage.
 
