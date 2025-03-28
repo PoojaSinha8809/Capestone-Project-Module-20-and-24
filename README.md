@@ -571,11 +571,11 @@ The number of times the model will iterate over the training data. With 10 epoch
 
 Indicates that the model will classify input images into 4 categories.
 
-### Compile third model
+### Compile Third Model
 
 In the model compilation, it will onfigures the model to use categorical cross-entropy as the loss function, accuracy as the evaluation metric, and Adam optimizer for training. 
 
-### Training third model
+### Training Third Model
 
 Let's understand the training result of the model. 
 
