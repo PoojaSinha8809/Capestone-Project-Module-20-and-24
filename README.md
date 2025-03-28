@@ -3,7 +3,7 @@
 # Project Name - "CNN based Image Classification"
 
 ## Introduction 
-Drone technology has witnessed rapid growth in recent years, finding applications in surveillance, delivery services, agriculture, and more. As drone usage continues to expand, ensuring safety and preventing unauthorized activities has become increasingly important. To address this concern, deep learning techniques can be applied to detect and localize drones in images. we will explore deep learning technique for image classification in the scope of this project.
+Drone technology has witnessed rapid growth in recent years, finding applications in surveillance, delivery services, agriculture, and more. As drone usage continues to expand, ensuring safety and preventing unauthorized activities has become increasingly important. To address this concern, deep learning techniques can be applied to detect and localize drones in images. we have explored deep learning technique for image classification in the scope of this project.
 
 **Project Overview: Object Classification for Drone Detection**
 
@@ -13,45 +13,45 @@ The dataset used for this project is the Kaggle Drone Detection Dataset, which c
 
 **Objective:**
 
-The main objective of this project is to develop an image classification model capable of distinguishing between four different categories: drone, helicopter, airplane, and bird. By leveraging the Kaggle Drone Detection Dataset, we will apply Deep Neural Networks (DNNs) and Convolutional Neural Networks (CNNs) to classify the images. The performance of the model will be evaluated based on various metrics to determine its accuracy and make improvements as needed. We will build multiple models to compare and add improvement in result. To compare the finding and explore the data we will further use MobileNet2 to evaluation the performance of model build with different parameters.
+The main objective of this project is to develop an image classification model capable of distinguishing between four different categories: drone, helicopter, airplane, and bird. By leveraging the Kaggle Drone Detection Dataset, we appled Deep Neural Networks (DNNs) and Convolutional Neural Networks (CNNs) to classify the images. The performance of the model is evaluated based on various metrics to determine its accuracy and make improvements as needed. We build multiple models to compare and add improvement in result. To compare the finding and explore the data we have further used MobileNet2 to evaluation the performance of model build with different parameters.
 
 # Source Dataset and Insights on data.
 The dataset used for this project is the Kaggle Drone Detection Dataset, which can be found at the following [Link] (https://www.kaggle.com/datasets/cybersimar08/drone-detection/data?select=tensorflow+obj+detection+drone). 
 
 This dataset contains images featuring different flying objects like drones, helicopters, airplanes, and birds. The images are labeled accordingly, and our goal is to train a model that can accurately classify these objects into their respective categories.
 
-In each train, valid and image folder of the dataset we have annotation.csv file. We will explore that file from train folder to understand the annotation data. 
+In each train, valid and image folder of the dataset we have annotation.csv file. I have explored that file from train folder to understand the annotation data. 
 
 ## Key Steps in the Project:
     
 ### Data Understanding and Preprocessing: 
     
-We will begin by exploring the dataset and organizing it for use in training the deep learning model. This includes preparing the images, resizing them, and splitting them into training, validation, and test sets.
+Started by exploring the dataset and organizing it for use in training the deep learning model. This includes preparing the images, resizing them, and splitting them into training, validation, and test sets.
 
-Each image will be labeled with the respective object class (drone, helicopter, airplane, or bird), which will be used for supervised learning.
+Each image is labeled with the respective object class (drone, helicopter, airplane, or bird), which is used for supervised learning.
 
 ### Model Development: 
 
-We will build a Convolutional Neural Network (CNN) for the image classification task. CNNs are well-suited for image data due to their ability to detect and learn patterns such as edges, textures, and shapes.
+Created a Convolutional Neural Network (CNN) for the image classification task. CNNs are well-suited for image data due to their ability to detect and learn patterns such as edges, textures, and shapes.
 
-The model will consist of multiple convolutional layers to extract features from the images, followed by fully connected layers to classify them into one of the four categories: drone, helicopter, airplane, or bird. 
+The model consists of multiple convolutional layers to extract features from the images, followed by fully connected layers to classify them into one of the four categories: drone, helicopter, airplane, or bird. 
 
 ### Training the Model: 
 
-We will train the CNN using the prepared dataset, utilizing deep learning frameworks like TensorFlow and Keras. During training, we will fine-tune hyperparameters such as learning rate, batch size, and the number of epochs to optimize the model's performance.
+Trained the CNN using the prepared dataset, utilizing deep learning frameworks like TensorFlow and Keras. During training, we have fine-tune hyperparameters such as learning rate, batch size, and the number of epochs to optimize the model's performance.
 
-The training will involve using categorical cross-entropy loss and the softmax activation function for multi-class classification.
+The training involved using categorical cross-entropy loss and the softmax activation function for multi-class classification.
 
 ### Evaluation and Accuracy: 
 
-After training, we will evaluate the model's performance on the validation and test datasets. Key evaluation metrics include accuracy, precision, recall, F1-score, and a confusion matrix to assess how well the model is performing at classifying each object.
+After training, evaluated the model's performance on the validation and test datasets. Key evaluation metrics include accuracy, precision, recall, F1-score, and a confusion matrix to assess how well the model is performing at classifying each object.
 
-The results will help determine the model's effectiveness at distinguishing between drones, helicopters, airplanes, and birds.
+The results has helped determine the model's effectiveness at distinguishing between drones, helicopters, airplanes, and birds.
 
 ### Additional details and exploration:
-We will first perform inital report and exploratory data analysis by creating a CNN model 
-To extend the evaluation of the model we will create other model by setting hyper parameter and comparing the result. 
-We will explore using pre-trained model like MobileNetV2 and compare the result. 
+At first performed inital report and exploratory data analysis by creating first CNN model. 
+Based on the evaluation of the model I have created other model by setting hyper parameter and compared the result. 
+I also explored the work on using pre-trained model like MobileNetV2 and compare the result. 
 
 
 ### Data Understanding and Preprocessing: 
@@ -60,11 +60,13 @@ We will explore using pre-trained model like MobileNetV2 and compare the result.
 
 The dataset has already been divided into training, testing, and validation sets, with images stored in separate train, valid, and test folders. Each image is labeled according to its class. The data size is 190 MB.
 
-We will perform data preprocessing on the dataset. The process are as follow:
+At first performed data preprocessing on the dataset. The process are as follow:
 
->- we will use labels from the image filename to structure the data by organizing the images into corresponding directories for each class (such as drone, helicopter, airplane, bird) within the train, valid, and test folders.
->- Once the images are organized, we will plot the distribution of images across each class in the training data to gain insight into class balance.Identifying class imbalance is an easy first step. We’re going to find the number of images assigned to each class and plot them in a bar chart to easily identify any imbalance. Imbalance in a CNN could result in poor performance for the class with less representation, impacting overall performance.
->- we will visualize the pixel values of sample images from each class to better understand the image characteristics. 
+>- Used labels from the image filename to structure the data by organizing the images into corresponding directories for each class (such as drone, helicopter, airplane, bird) within the train, valid, and test folders.
+
+>- Once the images are organized,  ploted the distribution of images across each class in the training data to gain insight into class balance.Identifying class imbalance is an easy first step. We’re also find the number of images assigned to each class and plot them in a bar chart to easily identify any imbalance. Imbalance in a CNN could result in poor performance for the class with less representation, impacting overall performance.
+
+>- Visualized the pixel values of sample images from each class to better understand the image characteristics. 
  
  ![View Number of Images By Class in Training Dataset](images/screenshots/Img1.jpg)
  
@@ -80,16 +82,16 @@ Maintaining a consistent image size is essential in deep learning, as mismatched
 
 This plot gives clarity that all training dataset are of same pixel size. From the graph we find that the image pixel size is 640*640. Using large image pixels (e.g., 640x640) has its drawbacks, particularly in terms of memory usage, training time, and the risk of overfitting. It’s often a good practice to resize images to a smaller resolution. 
 
-In the jupyter notebook we will find techniques like Data Augmentation is used on resized images to improve the model accuracy and performance. 
+In the jupyter notebook I have used techniques like Data Augmentation is used on resized images to improve the model accuracy and performance. 
 
 ![Original Pixel of Images for some classes](images/screenshots/Img2.jpg)
 
 
-To have same format of data we will perform the image structuring and resizing for all train, valid and test datasets. 
+To have same format of data, I have performed the image structuring and resizing for all train, valid and test folders. 
 
 **Understand the annotation dataset in the train folder.** 
 
-Like we mentioned before, the dataset has annotation.csv in train, valid and test folder. We will explore teh dataset to understand the annotation data and analyse the data to decide if the annotation is matching with actual image files in each class.
+Like I mentioned before, the dataset has annotation.csv in train, valid and test folders. Explored the dataset to understand the annotation data and analyse the data to decide if the annotation is matching with actual image files in each class.
 
 ![View Number of Filename based on Class using Annotation Dataset](images/screenshots/Img5.jpg)
 
@@ -97,17 +99,18 @@ Upon reviewing the plot above, it is evident that the annotation data does not a
 
 ### Image Preprocessing:
 
-To achieve image preprocessing at first images are resized to 256*256 pixel in the appropriate directories for each class. To verify the quality of the image we will plot the images in Grid view.
+To achieve image preprocessing at first images are resized to 256*256 pixel in the appropriate directories for each class. To verify the quality of the image, plotted the images in Grid view.
 
 **View sample image after resizing in Grid**
 
 ![sample images grid view](images/screenshots/Img21.jpg)
 
-While this may not be critical for the model itself, getting familiar with the data is essential. The more we understand the dataset, the better equipped we will be to interpret model outputs. This insight will enable us to make informed iterations, leading to more intelligent adjustments and, ultimately, a more effective and refined model.
+While this may not be critical for the model itself, getting familiar with the data is essential. The more we understand the dataset, the better equipped we will be to interpret model outputs. This insight has enabled  to make informed iterations, leading to more intelligent adjustments and, ultimately, a more effective and refined model.
 
 **Label Encoding**
 
 Label encoding is an important step in the preprocessing pipeline for image classification, especially when the target labels are categorical (i.e., the images belong to different classes, such as  drone, helicopter, airplane, bird). Here's why label encoding is needed:
+
  - Label encoding transforms each unique label (class name) into a corresponding integer.
  - Label encoding guarantees that the model can correctly interpret the classes during both training and evaluation.
  - After label encoding, we can use one-hot encoding to represent each class as a vector of binary values.
@@ -116,16 +119,16 @@ Label encoding is an important step in the preprocessing pipeline for image clas
 
 This is particularly important for neural networks, which expect numeric input rather than string labels.
 
-In our case we will be applying label encoding using LabelEncoder from sklearn.preprocessing package to encode the training, validation and tetsing dataset. 
+In this case, I applyied label encoding using LabelEncoder from sklearn.preprocessing package to encode the training, validation and tetsing dataset. 
 
 **Data Augmentation using ImageDataGenerator**
 
 Data augmentation is a technique used to artificially expand the size of a training dataset by generating modified versions of the images in the dataset. ImageDataGenerator from Keras is a powerful tool for performing real-time data augmentation during training. It generates new images by applying random transformations such as rotations, flips, zooms, shifts, etc., to the original images, helping to improve the model’s performance.
 
-In this project, we are using data augemtation on training dataset and only rescaling in testing and validation dataset to use in the first model we will be creating based on CNN architecture. 
+In this project, we are using data augemtation on training dataset and only rescaling in testing and validation dataset to use in the first model created based on CNN architecture. 
 
 ### First Model Development: 
-In this project we first created Convolutional Neural Network (CNN) using Keras' Sequential API. It’s designed for image classification, where the input is an image of shape (256, 256, 3) (256x256 pixels with 3 color channels).
+In this project, first created Convolutional Neural Network (CNN) using Keras' Sequential API. It’s designed for image classification, where the input is an image of shape (256, 256, 3) (256x256 pixels with 3 color channels).
 
 Let's understand the model archietcture:
 
@@ -199,9 +202,9 @@ This is the first model we are compiling using multi-class classification. We ar
 When dataset uses integer-encoded labels (i.e., labels are integer indices for the classes), sparse_categorical_crossentropy should be used.                                   
 
 ### Training First Model
-Now, we can train the model using train_generator and valid_generator (created using Data Augmentation) that return integer-encoded labels. We will also use epochs, An epoch refers to one complete cycle through the entire training dataset during the training process of a model. In machine learning, when training a model, we pass the data through the network multiple times to optimize its weights and biases, helping the model learn to make better predictions.
+Now, we can train the model using train_generator and valid_generator (created using Data Augmentation) that return integer-encoded labels. I used epochs, An epoch refers to one complete cycle through the entire training dataset during the training process of a model. In machine learning, when training a model, pass the data through the network multiple times to optimize its weights and biases, helping the model learn to make better predictions.
 
-we are training the model on Epoch value of 10. 
+Training the model on Epoch value of 10. 
 
 ![View First Model Training](images/screenshots/Img10.jpg)
 
@@ -336,11 +339,11 @@ While the model achieves decent overall accuracy (85%), it has issues with class
 
 ## Additional Exploration to handle the improvement suggested:
 
-In the scope of this project I explore some more models to compare the performance. We will notice improvement in the first model by using more advance hyper parameter. For learning and exploration of the dataset I tried MobileNetV2 and we will understand the result, performance and improvement of it. Let's proceed..
+In the scope of this project I explored some more models to compare the performance. Tried improvement in the first model by using more advance hyper parameter and build second CNN model. For learning and exploration of the dataset I tried MobileNetV2 and understand the result, performance and improvement of it. Let's proceed..
 
 ### Create Second CNN Model
 
-We will now define the second CNN model for this project. The model architecture is same and number of layers are same. The key change in the second model is adding hyperparameters. hyperparameters are the settings or configurations that we define before training the model. These hyperparameters directly influence the performance of the model, and finding the right set of hyperparameters is crucial to obtaining good results. Hyperparameters are different from the model parameters (such as weights and biases), which are learned during training. We are using 'adamx' optimizer, 'categorical_crossentropy' loss. We are further prprocessing the image using normalization. and learning_rate while compiling the model to improve the performance of the model.
+Define the second CNN model for this project. The model architecture is same and number of layers are same. The key change in the second model is adding hyperparameters. hyperparameters are the settings or configurations that we define before training the model. These hyperparameters directly influence the performance of the model, and finding the right set of hyperparameters is crucial to obtaining good results. Hyperparameters are different from the model parameters (such as weights and biases), which are learned during training. I am using **'adamx'** optimizer, 'categorical_crossentropy' loss. Further preprocessing the image using normalization, and learning_rate while compiling the model to improve the performance of the model.
 
 The learning rate determines how much the weights of the model are adjusted with respect to the loss function after each update.
 Optimizers are algorithms used to update the model weights based on the loss function.
@@ -348,28 +351,28 @@ Normalization helps to accelerate the convergence of the model during training a
 
 ### Compile Second CNN Model
 
-Categorical Cross-Entropy is a loss function commonly used for multi-class classification tasks, where the goal is to assign an image or input to one of multiple possible classes. It's widely used in image classification problems where the target labels are one-hot encoded (i.e., each label is represented as a vector where only one position is 1, corresponding to the correct class, and all others are 0). Admax is a newer optimization algorithm designed to combine the benefits of Adam and AMSGrad.
+**Categorical Cross-Entropy** is a loss function commonly used for multi-class classification tasks, where the goal is to assign an image or input to one of multiple possible classes. It's widely used in image classification problems where the target labels are one-hot encoded (i.e., each label is represented as a vector where only one position is 1, corresponding to the correct class, and all others are 0). Admax is a newer optimization algorithm designed to combine the benefits of Adam and AMSGrad.
 
 AdamX is an extension of the Adam optimization algorithm, which is widely used in deep learning for its adaptive learning rate capabilities. Adam (short for Adaptive Moment Estimation) combines the benefits of both AdaGrad and RMSprop, adapting the learning rate based on the first and second moments (mean and variance) of the gradients.
 
-AdamX vs Adam
+**AdamX vs Adam**
 Adam is a widely used and reliable optimizer, but it can sometimes be inefficient in some contexts, such as sparse data or problems with noisy gradients.
 
 AdamX builds on Adam's core strengths but includes additional mechanisms to better handle specific challenges, like reducing overfitting or managing noisy gradients in complex models.
 
-**We added additional Data preprocessing using custom DataGenerator class()**
+**Added additional Data preprocessing using custom DataGenerator class()**
 
-Here we created custom DataGenerator. which is designed to be used with Keras or TensorFlow’s fit() function, especially when we have a large dataset that doesn’t fit entirely into memory. It is a subclass of Sequence, which is a base class provided by Keras for writing data generators. The purpose of the DataGenerator class is to load and yield batches of data (images and their corresponding labels) for training.
+Here I used custom DataGenerator. which is designed to be used with Keras or TensorFlow’s fit() function, especially when we have a large dataset that doesn’t fit entirely into memory. It is a subclass of Sequence, which is a base class provided by Keras for writing data generators. The purpose of the DataGenerator class is to load and yield batches of data (images and their corresponding labels) for training.
 
 Custom generators are used when we need highly specialized functionality that is not supported by the built-in ImageDataGenerator. It is flexible as we need it to be. We can load data from any source (e.g., files, in-memory data, or even external databases), perform custom data augmentation, and even change how batches are constructed
 
-In the previous model we used ImageDataGenerator for data preprocessing. Let's look at the key difference between both.
+In the previous model I have used ImageDataGenerator for data preprocessing. Let's look at the key difference between both.
 ![ImageGenerator and Data Generator](images/screenshots/Img7.jpg)
 
 ### Training Second CNN Model
 
-Now we will tarin the second model using the traina and validation data generated using DataGenerator. We will increase the Epoch time as well.. 
-This time we use Epoch value as 15. 
+Now let's train the second model using the traina and validation data generated using DataGenerator. We can train the model by increasing the Epoch time as well.. 
+This time I used Epoch value as 15. 
 
 ![Training Summary of Second Model](images/screenshots/Img13.jpg)
 
@@ -431,7 +434,7 @@ This shows that the model improved steadily throughout the training process, wit
 
 ### Evaluation and Accuracy of Second Model
 
-Because the model was trained on normalized data so before model evaluation we will normalizsed the test data and evaluate the model performance. 
+Because the model was trained on normalized data so before model evaluation we need to normalize the test data and evaluate the model performance. 
 
 19/19 [==============================] - 1s 65ms/step - loss: 0.1826 - accuracy: 0.9144
 Test Accuracy: 0.91
@@ -441,7 +444,7 @@ The 91% test accuracy is a strong indicator that the model has learned effective
 The time per batch (65ms) is also efficient, suggesting that the model is processing the test data quickly.
 In summary, the model seems to be doing well in terms of both performance (accuracy) and efficiency (time per step).
 
-Like we did in first model, we will also like to view classifcation report on second model prediction and see the details. 
+Like we did in first model, we can view classifcation report on second model prediction and see the details. 
 
 **Classification Report of Model Prediction**
 
@@ -467,9 +470,9 @@ The model is performing well across all classes, with particularly strong perfor
 
 MobileNetV2 is a powerful, efficient, and lightweight model, ideal for image classification tasks where computational resources are constrained, such as on mobile devices, embedded systems, and real-time applications. It provides a great balance between accuracy, speed, and resource usage, making it suitable for both research and production environments. Its efficiency makes it a popular choice for modern image classification tasks, especially when working with limited hardware or requiring real-time performance.
 
-Becasuse the data we used is computer vision data so we like to explore using MobileNetV2. 
+Becasuse the data used here is computer vision data so I thought  to explore using MobileNetV2. 
 
-We will first prepare the data and for that we will first try to convert the data in numpy array and set the training and testing in define dimension to use it model training and evaluation. 
+For MobileNetV2 need, first the data is prepared by converting the data in numpy array and set the training and testing in define dimension to use it model training and evaluation. 
 
 **Data Preparation**
 
@@ -633,7 +636,7 @@ The training logs suggest that third model is overfitting the training data, lea
 
 ### Evaluation and Accuracy of third Model
 
-Like other models we will also evaluate third model and predict the model to review the model performance and understand the area of improvement. From training logs we can already find that model is need some improvement and cannot be consider a best model at this stage. 
+Like other models let's see the evaluation and prediction of third model to review the model performance and understand the area of improvement. From training logs we can already find that model is need some improvement and cannot be consider a best model at this stage. 
 
 Let's find analyse the report on evaluation and prediction 
 
@@ -680,12 +683,16 @@ Let's find analyse the report on evaluation and prediction
 **Additional Improvement for future**
 
 - Improve Model's Sensitivity to Minority Classes
+
 - Improving Model Architecture, in case of pre-trained model like MobileNetV2, we can use fine-tunning layers and freeze the earlier layers and fine-tune the deep layers based on the classification performance for each class.
+
 - Implement K-Fold Cross-Validation to ensure the model's performance is not biased.
 
 In conclusion, while the model is predicting Helicopter well, it is failing drastically with the other classes, making it an ineffective classifier in its current state.
 
-To better understand class weights and class imbalance, as observed in the case of the third model, a confusion matrix can be extremely helpful.In the scope of the project we created confusion matrix to focus on the issue. 
+To better understand class weights and class imbalance, as observed in the case of the third model, a confusion matrix can be extremely helpful.
+
+In the scope of the project I used confusion matrix to focus on the issue. 
 
 A **confusion matrix** is an essential tool for understanding the performance of a classification model, especially in multiclass classification tasks. It provides a deeper understanding of the model's strengths and weaknesses, helps with identifying class imbalances or misclassifications, and guides further model improvement strategies.
 
@@ -722,7 +729,7 @@ With above evaluation details on all three models used in the scope of this imag
 
 From the above comparison, it is evident that the first CNN model requires significant improvement. Its accuracy is relatively low, and the precision and recall values for most classes are also subpar, which indicates that the model is not effectively distinguishing between the different categories. This suggests that the model has not learned robust features to properly classify the images, likely due to issues such as overfitting, insufficient data, or suboptimal hyperparameters. To enhance the model's performance, it would be necessary to explore methods like fine-tuning the model, experimenting with more advanced data augmentation techniques, and adjusting hyperparameters. Additionally, techniques like class weighting or oversampling underrepresented classes in the dataset might help improve the model's ability to generalize better to unseen data.
 
-To address these concerns, the second model was created using the same CNN architecture but with optimized hyperparameters. The goal was to provide a better result by refining the model and training approach. With these changes, we aim to achieve higher accuracy, better precision, and improved recall across all classes compared to the first CNN model. This iterative improvement highlights the importance of tuning various components to get closer to an optimal solution.
+To address these concerns, the second model was created using the same CNN architecture but with optimized hyperparameters. The goal was to provide a better result by refining the model and training approach. With these changes, I aim to achieve higher accuracy, better precision, and improved recall across all classes compared to the first CNN model. This iterative improvement highlights the importance of tuning various components to get closer to an optimal solution.
 
 On the other hand, the MobileNetV2 model also reveals significant issues with class imbalance and generalization. While it performs well on certain classes in terms of precision, it struggles to generalize across the entire dataset. The model’s inability to correctly identify instances from most of the classes is detrimental to its overall performance, as it leads to a drop in recall and F1-score. Despite being a lightweight and efficient architecture, MobileNetV2 exhibits limited ability to handle the complexity and variance of the dataset in this particular scenario.
 
