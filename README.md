@@ -739,6 +739,19 @@ Addressing these issues is crucial for improving the accuracy and overall perfor
 
 In summary, both models, the first CNN and MobileNetV2, exhibit significant room for improvement. By focusing on enhancing generalization, addressing class imbalance, and optimizing hyperparameters, it’s possible to significantly improve the models’ performance, leading to better accuracy and precision across all classes.
 
+During the exploration work, I did try GridSearchCV for hyper tunning the model but It did support very well with Image classification problem. 
+Due to the computational intensity and the complexity of the model, it was tricky to use it. 
+
+GridSearchCV is useful for hyperparameter optimization, but due to the computational cost involved, especially in deep learning-based image classification tasks, it is typically more efficient to:
+
+Use RandomizedSearchCV or Bayesian Optimization for hyperparameter tuning.
+
+Leverage pre-trained models and transfer learning to reduce the computational load.
+
+Use more efficient libraries for hyperparameter optimization, such as Optuna or Ray Tune.
+
+In practice, for large image datasets and deep learning models, alternative methods often offer a better balance between performance and resource usage.
+
 
 ## Future Work and Enhancement of the Project:
 
