@@ -20,7 +20,7 @@ The dataset used for this project is the Kaggle Drone Detection Dataset, which c
 
 This dataset contains images featuring different flying objects like drones, helicopters, airplanes, and birds. The images are labeled accordingly, and our goal is to train a model that can accurately classify these objects into their respective categories.
 
-In each train, valid and image folder of the dataset we have annotation.csv file. We will explore that file from train to understand the data. 
+In each train, valid and image folder of the dataset we have annotation.csv file. We will explore that file from train folder to understand the annotation data. 
 
 ## Key Steps in the Project:
     
