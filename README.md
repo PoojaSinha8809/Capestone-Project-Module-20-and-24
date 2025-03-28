@@ -276,35 +276,35 @@ The classification report gives us a detailed breakdown of the model's performan
 
 Precision tells us how many of the instances the model predicted as a certain class were actually that class. For example:
 
->- AIRPLANE Precision = 0.17, meaning only 17% of the images predicted as AIRPLANE were actually AIRPLANE. This is quite low.
+> - AIRPLANE Precision = 0.17, meaning only 17% of the images predicted as AIRPLANE were actually AIRPLANE. This is quite low.
 
->- DRONE Precision = 0.42, which means 42% of the images predicted as DRONE were actually DRONE.
+> - DRONE Precision = 0.42, which means 42% of the images predicted as DRONE were actually DRONE.
 
 - Recall
 
->- Recall tells us how many of the actual instances of a class were correctly identified by the model. For example:
+> - Recall tells us how many of the actual instances of a class were correctly identified by the model. For example:
 
->- AIRPLANE Recall = 0.11, which means the model correctly identified only 11% of actual AIRPLANE images.
+> - AIRPLANE Recall = 0.11, which means the model correctly identified only 11% of actual AIRPLANE images.
 
->- DRONE Recall = 0.45, meaning the model correctly identified 45% of actual DRONE images.
+> - DRONE Recall = 0.45, meaning the model correctly identified 45% of actual DRONE images.
 
->- HELICOPTER Recall = 0.34, meaning it correctly identified 34% of HELICOPTER images.
+> - HELICOPTER Recall = 0.34, meaning it correctly identified 34% of HELICOPTER images.
 
 - F1-Score
 
->- The F1-score is the harmonic mean of precision and recall. It is useful when we need a balance between precision and recall:
+> - The F1-score is the harmonic mean of precision and recall. It is useful when we need a balance between precision and recall:
 
->- AIRPLANE F1-score = 0.13, which is very low, indicating poor performance on predicting AIRPLANE images.
+> - AIRPLANE F1-score = 0.13, which is very low, indicating poor performance on predicting AIRPLANE images.
 
->- DRONE F1-score = 0.43, which is higher than others, but still below the ideal score of 1.0.
+> - DRONE F1-score = 0.43, which is higher than others, but still below the ideal score of 1.0.
 
->- HELICOPTER F1-score = 0.29, which also reflects poor performance in predicting HELICOPTER images.
+> - HELICOPTER F1-score = 0.29, which also reflects poor performance in predicting HELICOPTER images.
 
 - Support
     
->- Support refers to the number of actual instances of each class in the dataset:
+> - Support refers to the number of actual instances of each class in the dataset:
 
->- AIRPLANE has 128 images, BIRD has 123, DRONE has 234, and HELICOPTER has 111.
+> - AIRPLANE has 128 images, BIRD has 123, DRONE has 234, and HELICOPTER has 111.
 
 
 These numbers tell us the distribution of images in the test set. DRONE has the most instances, while HELICOPTER has the least.
@@ -397,13 +397,13 @@ Although the validation accuracy fluctuates, it doesn't dramatically decrease af
 
 **Learning Curve:**
 
->- The model seems to follow a typical learning curve:
+- The model seems to follow a typical learning curve:
 
->- Early epochs show rapid improvements in loss and accuracy.
+- Early epochs show rapid improvements in loss and accuracy.
 
->- After several epochs, the rate of improvement slows down, as seen in the later epochs where changes in loss and accuracy become smaller.
+- After several epochs, the rate of improvement slows down, as seen in the later epochs where changes in loss and accuracy become smaller.
 
->- This behavior is common in deep learning models as they converge towards an optimal state.
+- This behavior is common in deep learning models as they converge towards an optimal state.
 
 ### Summary of Second Model Performance:
 
@@ -521,9 +521,9 @@ Let's understand the Model architecture.
 
 7. Fully Connected Layer (Dense Layer)
 
-A Dense (fully connected) layer with 512 units is added. This layer learns high-level combinations of features extracted by the MobileNetV2 base model.
+- A Dense (fully connected) layer with 512 units is added. This layer learns high-level combinations of features extracted by the MobileNetV2 base model.
 
-ReLU activation function is applied here to introduce non-linearity, allowing the model to learn more complex patterns.
+- ReLU activation function is applied here to introduce non-linearity, allowing the model to learn more complex patterns.
 
 8. Dropout Layer
 
@@ -537,7 +537,7 @@ The Dropout layer with a dropout rate of 50% is added to reduce overfitting. It 
 
 10. Dropout Layer
 
-A second Dropout layer with a 50% rate is added again to prevent overfitting and to further regularize the model.
+- A second Dropout layer with a 50% rate is added again to prevent overfitting and to further regularize the model.
 
 11. Output Layer
 
@@ -637,7 +637,7 @@ Like other models we will also evaluate third model and predict the model to rev
 
 Let's find analyse the report on evaluation and prediction 
 
-![Classifcation Report on Thrid Model Evaluation](images/screenshots/img17.jpg)
+![Classifcation Report on Thrid Model Evaluation](images/screenshots/Img17.jpg)
 
 **Overall Metrics:**
 
@@ -754,7 +754,7 @@ Another approach for enhancing the model is to leverage pre-trained models like 
 
 A significant next step is extending the model for real-time drone detection in live surveillance footage. Real-time detection adds a layer of complexity, as the model must be able to process and classify images at high speed while maintaining high accuracy. Optimizing the model for inference speed is crucial in scenarios such as live surveillance systems where quick response times are required. Integrating the model with efficient video processing frameworks—such as TensorFlow Lite, OpenCV, or other lightweight solutions—can help optimize the model for real-time deployment. Additionally, by streamlining the model’s architecture and reducing computational complexity, we can improve its ability to make predictions swiftly without sacrificing accuracy. Real-time drone detection has the potential to significantly enhance security and surveillance systems, enabling prompt identification of unauthorized drones in restricted airspace or sensitive areas. This integration would enable more effective and timely interventions, improving overall safety and security.
 
-**Model Deployment for Commerical use**
+**Model Deployment for Commerical Use:**
 
 Deploying an image classification model for commercial use is a complex, multi-faceted process that encompasses more than just the technical aspects of model optimization and deployment. It requires a strategic alignment with business objectives, seamless integration into existing workflows, and a focus on user experience, security, and scalability. By ensuring that the model is fully integrated into business operations, continuously monitored for performance, and optimized for both cost and efficiency, the deployment can provide significant value and drive business outcomes. Moreover, establishing a robust system for ongoing model improvements, monitoring, and retraining ensures the model remains adaptable and effective as business requirements and data evolve over time.
 
