@@ -527,7 +527,7 @@ Let's understand the Model architecture.
 
 8. Dropout Layer
 
-The Dropout layer with a dropout rate of 50% is added to reduce overfitting. It randomly drops half of the neurons during each training step, forcing the network to learn more robust features and reducing reliance on any single neuron.
+- The Dropout layer with a dropout rate of 50% is added to reduce overfitting. It randomly drops half of the neurons during each training step, forcing the network to learn more robust features and reducing reliance on any single neuron.
 
 9. Second Fully Connected Layer
 
@@ -547,7 +547,7 @@ The Dropout layer with a dropout rate of 50% is added to reduce overfitting. It 
 
 This architecture is suitable for image classification tasks where we need a model that is both accurate and efficient, leveraging pre-trained feature extraction with MobileNetV2.
 
-**Explanation on parameter used in third model**
+**Explaination on parameter used in third model**
 
 - **Batch Size (bs):** 
 
