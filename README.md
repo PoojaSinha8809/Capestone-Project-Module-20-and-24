@@ -631,7 +631,7 @@ Ensure Proper Data Split: Verify that the training and validation sets are well-
 
 The training logs suggest that third model is overfitting the training data, leading to a very high training accuracy and poor validation accuracy. Overfitting is usually the result of having a complex model, inadequate regularization, or insufficient data. To improve performance on unseen data (validation data), try applying regularization techniques, adjusting the model architecture, and experimenting with data augmentation.
 
-**Evaluation and Accuracy of third Model**
+### Evaluation and Accuracy of third Model
 
 Like other models we will also evaluate third model and predict the model to review the model performance and understand the area of improvement. From training logs we can already find that model is need some improvement and cannot be consider a best model at this stage. 
 
@@ -677,7 +677,7 @@ Let's find analyse the report on evaluation and prediction
 
 - Evaluation Metrics: Ensure that the evaluation metrics (such as recall, precision, and F1-score) are appropriate for the task.We might also need to experiment with different hyperparameters or models.
 
-**Additional Improvement for the third model**
+**Additional Improvement for future**
 
 - Improve Model's Sensitivity to Minority Classes
 - Improving Model Architecture, in case of pre-trained model like MobileNetV2, we can use fine-tunning layers and freeze the earlier layers and fine-tune the deep layers based on the classification performance for each class.
