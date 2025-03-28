@@ -76,7 +76,7 @@ From the plot we can clearly see the class imbalancing in the training and testi
 
 Maintaining a consistent image size is essential in deep learning, as mismatched image dimensions can cause errors and halt the project. Ensuring uniformity in image size across the dataset is crucial for model compatibility and effective training. Additionally, visualizing the raw image sizes can provide valuable insights into the dataset, helping better understand its structure and any potential issues that may arise during preprocessing.
 
-**Plot the original images pixel from some classes:
+**Plot the original images pixel from some classes:**
 
 This plot gives clarity that all training dataset are of same pixel size. From the graph we find that the image pixel size is 640*640. Using large image pixels (e.g., 640x640) has its drawbacks, particularly in terms of memory usage, training time, and the risk of overfitting. It’s often a good practice to resize images to a smaller resolution. 
 
